@@ -1,0 +1,165 @@
+.milkApp{
+  display: flex;
+  flex-direction: column;
+}
+
+.milkApp .milkApp-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.milkApp .milkApp-header .header-brand{
+  min-height: 4rem;
+  pointer-events: none;
+}
+
+.milkApp .milkApp-header .header-brand h1{
+  display: none;
+}
+
+
+.milkApp .milkApp-content{
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.milkApp-content .content-timer{
+  font-size: 2rem;
+}
+
+.milk-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  outline: none;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #66bfbf;
+}
+
+.milk-button:focus, .milk-button:hover{
+  outline: none;
+  border: none;
+  background-color: #f0f0f0;
+}
+
+.milk-button .milk-button_icon{
+  width: 40px;
+  height: 40px;
+}
+
+.milk-button .milk-button_text{
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+
+.alert-dialog-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert-dialog{
+  width: min(300px, 70%);
+  padding: 10px 20px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #66bfbf;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+}
+
+.alert-dialog input{
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #66bfbf;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.alert-dialog button{
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #66bfbf;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.milkTable{
+  overflow-x: auto;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.milkTable table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.milkTable table th, .milkTable table td{
+  border: 1px solid #66bfbf;
+  padding: 0.5em;
+}
+
+@media (min-width: 992px) {
+  
+  .milkApp .milkApp-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: #66bfbf;
+  }
+  
+  .milkApp .milkApp-header .header-brand{
+    min-height: 4rem;
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .milkApp .milkApp-header .header-brand h1{
+    display: inline-block;
+  }
+
+  .alert-dialog{
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+  
+}
