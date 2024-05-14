@@ -42,32 +42,25 @@ const MilkProvider = ({ children }) => {
 
     const startMilkingTimer = () => {
         intervalRef.current = setInterval(() => {
-            if(milkStatus === MilkStatusMap.IDLE || 
+            if (milkStatus === MilkStatusMap.IDLE || 
                 milkStatus === MilkStatusMap.PAUSED) {
-                if(milkDuration.seconds < 59) {
-                    setMilkDuration((previous) => ({
-                        ...previous,
-                        seconds: previous.seconds + 1
-                    }))
-                }
-                else if(milkDuration.minutes < 59 && milkDuration.seconds === 59) {
-                    setMilkDuration((previous) => ({
-                        ...previous,
-                        minutes: previous.minutes + 1,
-                        seconds: 0
-                    }))
-                }
-                else if(milkDuration.minutes === 59 && milkDuration.seconds === 59) {
-                    setMilkDuration((previous) => ({
-                        ...previous,
-                        hours: previous.hours + 1,
-                        minutes: 0,
-                        seconds: 0
-                    }))
-                }
+                setMilkDuration(previous => {
+                    let updatedDuration = { ...previous };
+                    if (updatedDuration.seconds < 59) {
+                        updatedDuration.seconds++;
+                    } else if (updatedDuration.minutes < 59 && updatedDuration.seconds === 59) {
+                        updatedDuration.minutes++;
+                        updatedDuration.seconds = 0;
+                    } else if (updatedDuration.hours < 23 && updatedDuration.minutes === 59 && updatedDuration.seconds === 59) {
+                        updatedDuration.hours++;
+                        updatedDuration.minutes = 0;
+                        updatedDuration.seconds = 0;
+                    }
+                    return updatedDuration;
+                });
             }
-        },1000);
-    }
+        }, 1000);
+    };
 
     const startMilking = () => {
         startMilkingTimer();
